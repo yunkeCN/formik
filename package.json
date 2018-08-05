@@ -1,5 +1,5 @@
 {
-  "name": "formik",
+  "name": "@yued/formik",
   "description": "Forms in React, without tears",
   "version": "1.0.2",
   "license": "MIT",
