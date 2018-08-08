@@ -131,7 +131,7 @@ class FieldInner<Props = {}, Values = {}> extends React.Component<
     props: FieldAttributes<Props> & { formik: FormikContext<Values> }
   ) {
     if (typeof props.shouldFieldUpdateOrEnableDefault === 'function') {
-      return props.shouldFieldUpdateOrEnableDefault(props);
+      return props.shouldFieldUpdateOrEnableDefault.bind(this, props);
     } else if (props.shouldFieldUpdateOrEnableDefault) {
       const {
         name,
@@ -182,7 +182,7 @@ class FieldInner<Props = {}, Values = {}> extends React.Component<
       children,
       component = 'input',
       formik,
-      shouldFieldUpdateOrEnableDefault,
+      enableDefaultUpdateFunc,
       ...props
     } = (this.props as FieldAttributes<Props> & {
       formik: FormikContext<Values>;
